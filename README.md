@@ -178,7 +178,7 @@ without domMethod will do `triggerAppearingWithMedia` before removed event<br>
 ```js
     .set('(min-width: 1200px)', function (event, context) {
       context.removeAppearing([
-        (max-width: 575.98px)',
+        '(max-width: 575.98px)',
         '(min-width: 576px) and (max-width: 767.98px)'
       ],
       'remove');
