@@ -366,7 +366,7 @@ media.prototype.removeAppearing = function (querystring, domMethod) {
 
   if (index > -1) {
     switch (domMethod) {
-      case 'appear':
+      case 'appearing':
         this.appearing.setter.main[index].custom = { matches: true };
         this.triggerAppearingWithMedia(querystring);
         break;
