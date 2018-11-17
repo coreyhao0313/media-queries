@@ -8,15 +8,15 @@ with chain method<br><br> can using callback or appear and disappear dom for RWD
 <br><br>
 do nothing<br>
 
-<code>
+```js
   new media();
-</code>
+```
 
 <br><br>
 set mediaQueryString and callback then<br>
 will be calling it when window resize width and "matches" be true<br>
 
-<code>
+```js
     new media()
         .set('(max-width: 575.98px)', function () {
           console.log('xs');
@@ -33,54 +33,54 @@ will be calling it when window resize width and "matches" be true<br>
         .set('(min-width: 1200px)', function () {
           console.log('xl');
         });
-</code>
+```
 
 if don't want matches was true to call only,
 add true for made event got to do when present invalid
 
-<code>
+```js
         .set('(min-width: 992px) and (max-width: 1199.98px)', function () {
           console.log('lg');
         }, true)
-</code>
+```
 
 
 callback parameters include native event<br>
 and context is from `new media()` self Object
 
-<code>
+```js
     .set('(min-width: 1200px)', function (evt, context) {
       context.getStatus(function (status, context) {
         context.remove(status.querystrings);
       });
     })
-</code>
+```
 
 remove event by mediaQueryStrings, like that<br>
 type of String or Array
 
-<code>
+```js
    .remove([
         '(max-width: 575.98px)',
         '(min-width: 576px) and (max-width: 767.98px)'
     ]);
-</code>
+```
 
 how to trigger them on first time (RWD runtime)?
 
-<code>
+```js
     .set...
     .set...
     .set...
     .getStatus(function (status, context) {
         context.trigger(status.querystrings); // type of String or Array
     })
-</code>
+```
 
 using `.getStatus` can get mediaQueryStrings `querystrings` after set events<br>
 get current active mediaQueryStrings `active_querystrings`
 
-<code>
+```js
       .getStatus(function (status, context) {
         console.log(status);
         /* status e.g.
@@ -90,13 +90,13 @@ get current active mediaQueryStrings `active_querystrings`
             }
         */
       })
-</code>
+```
 
 <h4>appear doms</h4>
 
 using `.setAppearing(mediaQueryStrings, dom)` set to appear dom
 
-<code>
+```js
   new media()
     .setAppearing("(max-width: 575.98px)", document.getElementById('demo-5'))
     .setAppearing("(min-width: 576px) and (max-width: 767.98px)", [
@@ -114,26 +114,26 @@ using `.setAppearing(mediaQueryStrings, dom)` set to appear dom
       document.getElementById('demo-3'),
       document.getElementById('demo-2')
     ])
-</code>
+```
 
 how to trigger them to appearing or disappearing on first time (RWD runtime)?<br><br>
 using `.getAppearingStatus` and `.triggerAppearingWithMedia`<br>
 the `.triggerAppearingWithMedia` is like `.trigger` that just for appearing effect
 
-<code>
+```js
     .setAppearing...
     .setAppearing...
     .setAppearing...
     .getAppearingStatus(function (status, context){
       context.triggerAppearingWithMedia(status.querystrings);
     });
-</code>
+```
 
 the `.getAppearingStatus` can get mediaQueryStrings `querystrings` after set appearing's events<br>
 get current active mediaQueryStrings `active_querystrings`<br><br>
 another it can get your all doms, and comments
 
-<code>
+```js
     .getAppearingStatus(function (status, context) {
       console.log(status);
       /* status e.g.
@@ -144,16 +144,16 @@ another it can get your all doms, and comments
           }
       */
     })
-</code>
+```
 
 default setting dom to appear or disappear by mediaQueryString<br>
 using `.appearingEffect(mediaQueryStrings, true || false)`
 
-<code>
+```js
     .appearingEffect('(max-width: 575.98px)', false); // set false is disappearing
-</code>
+```
 
-<code>
+```js
     /*
         status.querystrings = [
             '(max-width: 575.98px)',
@@ -167,7 +167,7 @@ using `.appearingEffect(mediaQueryStrings, true || false)`
     .getAppearingStatus(function (status, context){
       context.appearingEffect(status.querystrings,  true); // appear all
     });
-</code>
+```
 
 using `.removeAppearing(mediaQueryStrings, domMethod)`<br> to remove appearing event<br><br>
 domMethod have two options<br>
@@ -175,7 +175,7 @@ domMethod have two options<br>
 `remove` is always disappearing dom and destroy dom after removed event<br><br>
 without domMethod will do `triggerAppearingWithMedia` before removed event<br>
 
-<code>
+```js
     .set('(min-width: 1200px)', function (event, context) {
       context.removeAppearing([
         (max-width: 575.98px)',
@@ -183,12 +183,12 @@ without domMethod will do `triggerAppearingWithMedia` before removed event<br>
       ],
       'remove');
     })
-</code>
+```
 
-<code>
+```js
     .getAppearingStatus(function (status, context) {
         if (status.querystrings.includes('(min-width: 1920px)')) {
             context.removeAppearing(status.querystrings);
         }
      });
-</code>
+```
