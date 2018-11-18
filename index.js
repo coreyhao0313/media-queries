@@ -102,10 +102,13 @@ media.prototype.set = function (querystring, callback, isNotMatchesOnly) {
 
 
 media.prototype.remove = function (querystring) {
-  if (typeof querystring !== 'string') {
-    console.error('querystring must be type of string');
-    return;
+  var querystrings;
+
+  if (Array.isArray(querystring) && querystring.length) {
+    querystrings = querystring;
+    querystring = querystrings.shift();
   }
+
   var self = this;
 
   var index = -1;
@@ -123,6 +126,10 @@ media.prototype.remove = function (querystring) {
     this.setter.callback.splice(index, 1);
   } else {
     console.warn('"' + querystring + '" doesn\'t exist');
+  }
+
+  if (querystrings && querystrings.length) {
+    this.remove(querystrings);
   }
 
   return this;

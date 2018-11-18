@@ -1,0 +1,65 @@
+<html>
+<head>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1 id="demo-1">(min-width: 1200px)</h1>
+  <h2 id="demo-2">(min-width: 992px) and (max-width: 1199.98px)</h2>
+  <h3 id="demo-3">(min-width: 768px) and (max-width: 991.98px)</h3>
+  <h4 id="demo-4">(min-width: 576px) and (max-width: 767.98px)</h4>
+  <h5 id="demo-5">(max-width: 575.98px)</h5>
+  
+  <script>
+    var counter = 0;
+
+    new media()
+      .setAppearing("(max-width: 575.98px)", document.getElementById('demo-5'))
+      .setAppearing("(min-width: 576px) and (max-width: 767.98px)", [
+        document.getElementById('demo-5'),
+        document.getElementById('demo-4')
+      ])
+      .setAppearing("(min-width: 768px) and (max-width: 991.98px)", [
+        document.getElementById('demo-5'),
+        document.getElementById('demo-4'),
+        document.getElementById('demo-3')
+      ])
+      .setAppearing("(min-width: 992px) and (max-width: 1199.98px)", [
+        document.getElementById('demo-5'),
+        document.getElementById('demo-4'),
+        document.getElementById('demo-3'),
+        document.getElementById('demo-2')
+      ])
+      .setAppearing("(min-width: 1200px)", [
+        document.getElementById('demo-5'),
+        document.getElementById('demo-4'),
+        document.getElementById('demo-3'),
+        document.getElementById('demo-2'),
+        document.getElementById('demo-1')
+      ])
+      .getAppearingStatus(function (status, context) {
+        context.triggerAppearingWithMedia(status.querystrings);
+      })
+
+      .set('(max-width: 575.98px)', function () {
+        alert('(max-width: 575.98px)');
+      })
+
+      .set('(min-width: 1280px)', function (evt, context) {
+
+        context.getAppearingStatus(function (status) {
+          if (++counter > 3) {
+            context.removeAppearing(status.querystrings, 'remove');
+            context.remove(context.getStatus().querystrings);
+            return;
+          } else {
+            context.appearingEffect(status.querystrings, false);
+          }
+          console.log('(min-width: 1280px)', counter);
+        });
+
+      });
+  </script>
+</body>
+
+</html>
