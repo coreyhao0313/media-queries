@@ -58,6 +58,9 @@
           console.log('(min-width: 1280px)', counter);
         });
 
+      })
+      .getStatus(function (status, context) {
+        context.trigger(status.querystrings);
       });
   </script>
 </body>
