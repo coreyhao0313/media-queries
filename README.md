@@ -3,9 +3,11 @@ A media-queries tool on javascript <br><br>
 It able to set events by media rule (querystring)
 with chain method<br><br> can using callback or appear and disappear dom for RWD that multiple condition from your complicated design!
 
-<h3>simple code</h3>
-
 <br><br>
+[DEMO](https://jsfiddle.net/ZivZeng/na1pcytj/6/)
+
+<h3>simple code</h3>
+<br>
 do nothing<br>
 
 ```js
