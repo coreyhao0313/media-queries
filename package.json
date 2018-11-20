@@ -1,0 +1,34 @@
+{
+  "name": "media-queries",
+  "version": "1.1.0",
+  "description": "RWD tool",
+  "main": "dist/media.min.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp-plumber": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-rename": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm i && gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreyhao0313/media-queries.git"
+  },
+  "keywords": [
+    "RWD",
+    "media-queries",
+    "Media",
+    "Queries"
+  ],
+  "author": "coreyhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coreyhao0313/media-queries/issues"
+  },
+  "homepage": "https://github.com/coreyhao0313/media-queries#readme"
+}
