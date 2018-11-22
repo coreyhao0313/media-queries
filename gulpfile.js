@@ -33,4 +33,3 @@ gulp.task('js', function () {
     }))
     .pipe(gulp.dest('./dist'));
 });
-console.log('ok');
