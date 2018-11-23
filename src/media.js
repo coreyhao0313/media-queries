@@ -517,6 +517,6 @@ media.prototype.fundIndexByQuerystring = function(querystrings, in_querystrings,
       .map(callback);
 }
 
-if ('module' in this && 'exports' in module) {
+if (typeof module === 'object' && 'exports' in module) {
   module.exports = media;
 }
