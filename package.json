@@ -1,6 +1,6 @@
 {
   "name": "media-queries",
-  "version": "1.1.2",
+  "version": "1.1.8",
   "description": "RWD tool",
   "main": "dist/media.min.js",
   "dependencies": {},

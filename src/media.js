@@ -1,3 +1,26 @@
+if (!Object.keys) {
+  Object.keys = function (obj) {
+    var keys = [];
+    for (var key in obj) {
+      keys.push(key);
+    }
+    return keys;
+  }
+}
+
+if(!Object.keys) {
+  Object.assign = function (obj1, obj2) {
+    var obj = {};
+    for (var key1 in obj1) {
+      obj[key1] = obj1[key1];
+    }
+    for (var key2 in obj2) {
+      obj[key2] = obj1[key2];
+    }
+    return obj;
+  }
+}
+
 var media = function () {
   this.setter =
     {
